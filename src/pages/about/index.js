@@ -163,7 +163,7 @@ function About() {
   return (
     <Container>
       <Head>
-        <title>Moon Coded — About Me</title>
+        <title>Ishikawa Izumi — About Me</title>
       </Head>
       <PageTitle
         title="about"

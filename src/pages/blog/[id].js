@@ -138,8 +138,6 @@ function Blog({ data, content, posts }) {
 }
 
 export const getStaticProps = async (context) => {
-  // GET POSTS DATA
-
   const files = fs.readdirSync(path.join("src/posts"));
   const posts = files.map((filename) => {
     const slug = filename.replace(".md", "");
@@ -157,21 +155,18 @@ export const getStaticProps = async (context) => {
     };
   });
 
-  // GET CURRENT POST DATA
-
-  const { id } = context.params; // extrai o id do path vindo do contexto da função getStaticPaths
+  const { id } = context.params;
 
   const data_post = fs.readFileSync(
     path.join("src/posts", `${id}.md`),
     "utf-8"
-  ); // lê o arquivo com esse id
+  );
 
-  const { data } = matter(data_post); // extrai o frontmatter dele e converte no objeto data
-  const { content } = matter(data_post); // extrai o conteudo do markdown e joga no objeto content
+  const { data } = matter(data_post);
+  const { content } = matter(data_post);
 
   return {
     props: {
-      // retorna os dados
       content,
       data,
       posts,
@@ -180,16 +175,15 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("src/posts")); // lê todos os arquivos nesse diretório
+  const files = fs.readdirSync(path.join("src/posts"));
 
   const paths = files.map((post) => ({
     params: {
       id: post.replace(".md", ""),
     },
-  })); // para cada arquivo cria um path que retorna um id, que é o slug do post
+  }));
 
   return {
-    // retorna todos os paths
     paths,
     fallback: false,
   };

@@ -46,7 +46,7 @@ function Contact() {
   return (
     <Container>
       <Head>
-        <title>Moon Coded - Contact Me</title>
+        <title>Ishikawa Izumi - Contact Me</title>
       </Head>
       <Main>
         <PageTitle

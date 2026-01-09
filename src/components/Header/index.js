@@ -49,7 +49,6 @@ function Header(props) {
     }
   }, []);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -118,7 +117,7 @@ function Header(props) {
               />
               <BsDribbble
                 onClick={() =>
-                  window.open("https://dribbble.com/twilightmoonhex", "_blank").focus()
+                  window.open("https://dribbble.com/mooncoded", "_blank").focus()
                 }
                 size={17}
               />
@@ -180,7 +179,7 @@ function Header(props) {
                 <BsDribbble
                   onClick={() =>
                     window
-                      .open("https://dribbble.com/twilightmoonhex", "_blank")
+                      .open("https://dribbble.com/mooncoded", "_blank")
                       .focus()
                   }
                   size={17}

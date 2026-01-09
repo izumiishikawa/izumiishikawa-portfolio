@@ -1,5 +1,4 @@
 import GlobalStyle from "../styles/global";
-import "../styles/global.css"
 import "../styles/dracula.css";
 import Header from "../components/Header";
 import { useRouter } from "next/router";
@@ -107,33 +106,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Moon Coded</title>
+        <title>Ishikawa Izumi</title>
       </Head>
       <Lines image={lines} />
-      {theme === dark ? (
-        <>
-          <CanvasContainer>
-            <Canvas
-              camera={{ fov: 70, position: [0, 0, 30] }}
-              onCreated={({ gl, size, camera }) => {
-                if (size.width < 600) {
-                  camera.position.z = 45;
-                }
-              }}
-            >
-              <OrbitControls
-                enableZoom={false}
-                autoRotate={true}
-                autoRotateSpeed={0.5}
-                rotateSpeed={0.1}
-              ></OrbitControls>
-              <Scene />
-            </Canvas>
-          </CanvasContainer>
-        </>
-      ) : (
-        <></>
-      )}
+     
       <CustomCursor />
       <GlobalStyle />
       <Header toggleTheme={toggleTheme} />

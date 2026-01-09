@@ -13,7 +13,7 @@ export default {
     reverseColor: "#FFFFFF",
     codeBlock: "#282A36",
 
-    entraptaGlasses: "#B52ADF",
-    entraptaGlassesLight: "#9A63EE",
+    entraptaGlasses: "#6752D5",
+    entraptaGlassesLight: "#9586e3",
   },
 };

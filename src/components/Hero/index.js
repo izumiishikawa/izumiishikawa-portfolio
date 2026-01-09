@@ -25,7 +25,7 @@ function Hero() {
     <Container>
       <Background image={background} />
       <Head>
-        <title>Moon Coded — Freelancer UI/UX Designer</title>
+        <title>Ishikawa Izumi — Freelancer UI/UX Designer</title>
       </Head>
       <Wrapper>
         <Main>

@@ -2,8 +2,6 @@ import React, { Suspense } from "react";
 import { Moon } from "./Moon";
 import { StarDustCrusaders } from "./StarDustCrusaders";
 
-// import { Container } from './styles';
-
 function Scene() {
   return (
     <Suspense>

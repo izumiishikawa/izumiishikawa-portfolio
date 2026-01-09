@@ -291,12 +291,12 @@ export const MobileHeader = styled.div`
   ${(props) =>
     props.theme.title == "dark-theme"
       ? css`
-          background: rgba(23, 17, 34, 0.95);
+          background: rgba(23, 17, 34, 1);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
         `
       : css`
-          background: rgba(255, 255, 255, 0.75);
+          background: rgba(255, 255, 255, 1);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
         `}
@@ -305,7 +305,7 @@ export const MobileHeader = styled.div`
     list-style: none;
     display: flex;
     flex-direction: column;
-    font-weight: 500;
+    font-weight: 900;
     font-size: 3em;
     gap: 20px;
     align-items: center;
