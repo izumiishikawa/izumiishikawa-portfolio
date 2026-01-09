@@ -26,10 +26,10 @@ function Contact() {
   const sendEmail = (e) => {
     emailjs
       .sendForm(
-        "service_sd8uatp",
-        "template_9bkroze",
+        "service_50wnttx",
+        "template_11m1mqp",
         e.target,
-        "M-ZEoRP3zha0buhUy"
+        "Dh4W84gR2oYOZQnbC"
       )
       .then(
         (result) => {
