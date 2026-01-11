@@ -7,7 +7,7 @@ export const ContainerEye = styled.div`
   align-items: flex-start;
   flex-direction: row;
   background-color: #171122;
-  border: 1px solid white;
+  border: 2px solid white;
   height: 90px;
   padding: 7px;
   border-top-left-radius: 10px;
