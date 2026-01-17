@@ -9,10 +9,7 @@
   <a href="#"><img alt="Markdown" src="https://img.shields.io/badge/Markdown-000000.svg?logo=markdown&logoColor=white"></a>
 </p>
 
----
-
 <p align="center">👉  This is my personal website project, it's a completely front-end application, fully responsive and interactive.</p>
----
 
 ## 💾 Installing 
 
