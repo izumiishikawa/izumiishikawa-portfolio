@@ -1,6 +1,4 @@
 <p align="center"><img alt="logo" src="https://github.com/mooncoded/mooncoded-portfolio/blob/main/logo.png" width="100px" /></p>
-<h1 align="center">IZUMI PORTFOLIO</h1>
-
 <p align="center">
   <a href="#"><img alt="NextJs" src="https://img.shields.io/badge/Next.js-222222?logo=nextdotjs&logoColor=white"></a>
   <a href="#"><img alt="CSS" src="https://img.shields.io/badge/CSS-1572B6.svg?logo=css3&logoColor=white"></a>
@@ -10,6 +8,7 @@
 </p>
 
 <p align="center">👉  This is my personal website project, it's a completely front-end application, fully responsive and interactive.</p>
+<br />
 
 ## 💾 Installing 
 
@@ -50,7 +49,7 @@ yarn dev
         <img src="https://avatars.githubusercontent.com/u/190766586?v=4" width="100px" alt="Izumi">
         <a href="https://github.com/izumiishikawa">
           <br>
-            Moon
+            Izumi
           </br>
         </a>
     </td>
