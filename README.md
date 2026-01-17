@@ -1,5 +1,5 @@
 <p align="center"><img alt="logo" src="https://github.com/mooncoded/mooncoded-portfolio/blob/main/logo.png" width="100px" /></p>
-<h1 align="center">MOON CODED PORTFOLIO</h1>
+<h1 align="center">IZUMI PORTFOLIO</h1>
 
 <p align="center">
   <a href="#"><img alt="NextJs" src="https://img.shields.io/badge/Next.js-222222?logo=nextdotjs&logoColor=white"></a>
@@ -12,9 +12,6 @@
 ---
 
 <p align="center">👉  This is my personal website project, it's a completely front-end application, fully responsive and interactive.</p>
-
-![MoonCodedGif](https://github.com/mooncoded/mooncoded-portfolio/blob/main/Preview.gif)
-
 ---
 
 ## 💾 Installing 
@@ -22,7 +19,7 @@
 Git clone the repository
 
 ```
-git clone https://github.com/mooncoded/mooncoded-portfolio
+git clone https://github.com/izumiishikawa/izumiishikawa-portfolio
 ```
 
 Install the dependencies
@@ -49,21 +46,12 @@ yarn dev
 
 ---
 
-## To-do
-
-- [ ] Add a work/projects route
-- [ ] Add a route transition animation 
-- [ ] Upgrade the blog styles
-- [ ] Add a language switch (pt-BR & en-US)
-
----
-
 ## 📖 Author
 <table>
   <tr>
     <td  align=center>
-        <img src="https://avatars.githubusercontent.com/u/90803853?v=4" width="100px" alt="Moon">
-        <a href="https://github.com/mooncoded">
+        <img src="https://avatars.githubusercontent.com/u/190766586?v=4" width="100px" alt="Izumi">
+        <a href="https://github.com/izumiishikawa">
           <br>
             Moon
           </br>
