@@ -110,14 +110,14 @@ function Header(props) {
               <BsLinkedin
                 onClick={() =>
                   window
-                    .open("https://www.linkedin.com/in/mooncoded/", "_blank")
+                    .open("https://www.linkedin.com/in/izumiishikawa/", "_blank")
                     .focus()
                 }
                 size={17}
               />
               <BsDribbble
                 onClick={() =>
-                  window.open("https://dribbble.com/mooncoded", "_blank").focus()
+                  window.open("https://dribbble.com/izumiishikawa", "_blank").focus()
                 }
                 size={17}
               />
@@ -169,7 +169,7 @@ function Header(props) {
                   onClick={() =>
                     window
                       .open(
-                        "https://www.linkedin.com/in/mooncoded/",
+                        "https://www.linkedin.com/in/izumiishikawa/",
                         "_blank"
                       )
                       .focus()
@@ -179,7 +179,7 @@ function Header(props) {
                 <BsDribbble
                   onClick={() =>
                     window
-                      .open("https://dribbble.com/mooncoded", "_blank")
+                      .open("https://dribbble.com/izumiishikawa", "_blank")
                       .focus()
                   }
                   size={17}
