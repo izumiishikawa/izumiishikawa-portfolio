@@ -59,37 +59,40 @@ export const SubTitle = styled.div`
   justify-content: center;
   cursor: pointer;
   gap: 2px;
-
   .stretch {
     transform: scale(1.3, 1);
     margin-right: 10px;
     margin-left: 10px;
     transition: 0.2s;
-
     @media (max-width: 500px) {
       margin-left: 6px;
       margin-right: 6px;
     }
   }
-
   .coded {
     font-size: 9rem;
   }
-
   @media (max-width: 500px) {
     .coded {
       font-size: 5rem;
     }
   }
-
   :hover {
     .stretch {
       transform: scale(1, 1);
       margin: 0px;
     }
   }
+  
+  color: transparent;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  
   -webkit-text-stroke: 3px ${(props) => props.theme.colors.mainText};
+  -moz-text-stroke: 3px ${(props) => props.theme.colors.mainText};
+  text-stroke: 3px ${(props) => props.theme.colors.mainText};
+  
+  paint-order: stroke fill;
 `;
 
 export const Letter = styled.h1`
