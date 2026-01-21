@@ -83,16 +83,8 @@ export const SubTitle = styled.div`
       margin: 0px;
     }
   }
-  
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-  
-  -webkit-text-stroke: 3px ${(props) => props.theme.colors.mainText};
-  -moz-text-stroke: 3px ${(props) => props.theme.colors.mainText};
-  text-stroke: 3px ${(props) => props.theme.colors.mainText};
-  
-  paint-order: stroke fill;
+
+ color: ${(props) => props.theme.colors.mainText};
 `;
 
 export const Letter = styled.h1`

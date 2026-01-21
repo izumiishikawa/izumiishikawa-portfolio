@@ -176,7 +176,7 @@ function About() {
           <FirstColumn>
             <AboutMeTitle>Hello 👋</AboutMeTitle>
             <NameTitle>
-              I'm <span>Izumi</span>
+              I'm Izumi
             </NameTitle>
             <AboutMeTitle>
               A <span className="colored">full-stack</span> Software Developer /
