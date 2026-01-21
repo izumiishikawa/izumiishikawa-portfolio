@@ -146,7 +146,7 @@ function Projects() {
       />
 
       <Head>
-        <title>Ishikawa Izumi - Projects</title>
+        <title>Ishikawa Izumi — Projects</title>
       </Head>
 
       <ProjectCard project={featuredProject} featured={true} />
