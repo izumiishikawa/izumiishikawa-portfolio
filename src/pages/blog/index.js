@@ -1,13 +1,13 @@
-import Head from "next/head";
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
-import { Container, MainWrapper } from "../../styles/pages/BlogMain";
-import PostCard from "../../components/PostCard";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { Zoom } from "react-reveal";
+import path from "path";
 import Tilt from "react-parallax-tilt";
+import { Zoom } from "react-reveal";
 import PageTitle from "../../components/PageTitle";
+import PostCard from "../../components/PostCard";
+import { Container, MainWrapper } from "../../styles/pages/BlogMain";
 
 export default function Blog({ posts }) {
   const router = useRouter();
@@ -15,9 +15,17 @@ export default function Blog({ posts }) {
   return (
     <Container>
       <Head>
-        <title>Ishikawa Izumi — Blog</title>
+        <title>Ishikawa Izumi | Blog</title>
+        <meta
+          name="description"
+          content="Insights and articles about UI/UX design, web and mobile development, freelancing, and building digital products with focus on usability and performance."
+        ></meta>
       </Head>
-      <PageTitle title="blog" stretchedLetter="b" overlayTitle="tutorials | documentation | life" />
+      <PageTitle
+        title="blog"
+        stretchedLetter="b"
+        overlayTitle="tutorials | documentation | life"
+      />
       <MainWrapper>
         <Zoom>
           {posts.map((post, index) => {
@@ -53,7 +61,7 @@ export const getStaticProps = async () => {
 
     const markdownMetaData = fs.readFileSync(
       path.join("src/posts", filename),
-      "utf-8"
+      "utf-8",
     );
 
     const { data } = matter(markdownMetaData);

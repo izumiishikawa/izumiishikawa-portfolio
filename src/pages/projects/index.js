@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import PageTitle from "../../components/PageTitle";
 import {
-  Container,
-  ProjectWrapper,
   AppDetails,
-  Thumbnail,
+  Container,
   DateContainer,
-  ThumbnailWrapper,
   ProjectsMain,
+  ProjectWrapper,
   StoreBadge,
   StoreRow,
+  Thumbnail,
+  ThumbnailWrapper,
 } from "../../styles/pages/Projects";
-import PageTitle from "../../components/PageTitle";
-import { useRouter } from "next/router";
-import Head from "next/head";
 
 function Projects() {
   const router = useRouter();
@@ -146,7 +146,11 @@ function Projects() {
       />
 
       <Head>
-        <title>Ishikawa Izumi — Projects</title>
+        <title>Ishikawa Izumi | Projects</title>
+        <meta
+          name="description"
+          content="Selected UI/UX and full-stack projects including websites and mobile apps, focused on clean design, usability, performance, and real business results."
+        ></meta>
       </Head>
 
       <ProjectCard project={featuredProject} featured={true} />

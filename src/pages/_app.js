@@ -1,19 +1,15 @@
-import GlobalStyle from "../styles/global";
-import "../styles/dracula.css";
-import Header from "../components/Header";
-import { useRouter } from "next/router";
-import { Suspense, useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
-import light from "../styles/themes/light";
-import dark from "../styles/themes/dark";
-import nookies from "nookies";
-import CustomCursor from "../components/CustomCursor";
-import styled from "styled-components";
-import { Canvas } from "@react-three/fiber";
-import Scene from "../components/Scene";
-import { OrbitControls } from "@react-three/drei";
 import Head from "next/head";
-import lines from "/public/static/assets/back.png"
+import { useRouter } from "next/router";
+import nookies from "nookies";
+import { useEffect, useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import CustomCursor from "../components/CustomCursor";
+import Header from "../components/Header";
+import "../styles/dracula.css";
+import GlobalStyle from "../styles/global";
+import dark from "../styles/themes/dark";
+import light from "../styles/themes/light";
+import lines from "/public/static/assets/back.png";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -25,36 +21,35 @@ function MyApp({ Component, pageProps }) {
 
     if (theme) {
       nookies.set(
-        {sameSite: true},
+        { sameSite: true },
         "theme",
-        JSON.stringify(theme === `"dark"` ? "dark" : "light")
+        JSON.stringify(theme === `"dark"` ? "dark" : "light"),
       );
     } else {
       nookies.set(
         { maxAge: 30 * 24 * 60 * 60, sameSite: true },
         "theme",
-        JSON.stringify("dark")
+        JSON.stringify("dark"),
       );
     }
 
     setTheme(theme === `"dark"` ? dark : light);
   }, [theme]);
 
-
   const toggleTheme = () => {
     const { theme } = nookies.get("theme");
 
     if (theme) {
       nookies.set(
-        {sameSite: true},
+        { sameSite: true },
         "theme",
-        JSON.stringify(theme === `"dark"` ? "light" : "dark")
+        JSON.stringify(theme === `"dark"` ? "light" : "dark"),
       );
     } else {
       nookies.set(
         { maxAge: 30 * 24 * 60 * 60, sameSite: true },
         "theme",
-        JSON.stringify("dark")
+        JSON.stringify("dark"),
       );
     }
 
@@ -106,10 +101,33 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title>Ishikawa Izumi</title>
+        <title>
+          Freelancer UI/UX Designer & Full-Stack Developer | Ishikawa Izumi
+        </title>
+
+        <link rel="canonical" href="https://www.izumiishikawa.com/" />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ishikawa Izumi",
+              url: "https://www.izumiishikawa.com",
+              jobTitle: "UI/UX Designer & Full-Stack Developer",
+              sameAs: [
+                "https://www.linkedin.com/in/izumiishikawa",
+                "https://github.com/izumiishikawa",
+                "https://dribbble.com/izumiishikawa",
+              ],
+            }),
+          }}
+        />
       </Head>
+
       <Lines image={lines} />
-     
+
       <CustomCursor />
       <GlobalStyle />
       <Header toggleTheme={toggleTheme} />
@@ -136,16 +154,19 @@ export const Lines = styled.div`
 `;
 
 export const Dots = styled.div`
-position: fixed;
+  position: fixed;
   width: 300vw;
   height: 300vh;
   left: -100%;
-  background-image: radial-gradient(${props => props.theme.colors.mainText} 3px, transparent 0);
+  background-image: radial-gradient(
+    ${(props) => props.theme.colors.mainText} 3px,
+    transparent 0
+  );
   background-size: 30px 30px;
   background-position: -10px -10px;
   opacity: 0.01;
   transform: rotate(60deg);
-`
+`;
 
 export const CanvasContainer = styled.div`
   position: fixed;
@@ -161,14 +182,14 @@ export const CanvasContainer = styled.div`
 `;
 
 export async function getServerSideProps(ctx) {
-  const cookies = nookies.get(ctx)
+  const cookies = nookies.get(ctx);
 
-  nookies.set(ctx, 'theme', JSON.stringify("dark"), {
+  nookies.set(ctx, "theme", JSON.stringify("dark"), {
     maxAge: 30 * 24 * 60 * 60,
-    path: '/',
-  })
+    path: "/",
+  });
 
-  return { cookies }
+  return { cookies };
 }
 
 export default MyApp;

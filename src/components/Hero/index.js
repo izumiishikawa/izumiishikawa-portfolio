@@ -1,22 +1,21 @@
-import React from "react";
-import background from "/public/static/assets/background.gif";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { Fade, Flip } from "react-reveal";
+import { BsChat, BsEye } from "../../styles/Icons";
 import {
-  Container,
-  Title,
-  SubTitle,
-  Letter,
-  Wrapper,
   About,
   Background,
-  ViewButton,
   ContactButton,
+  Container,
   HeroFooter,
+  Letter,
   Main,
+  SubTitle,
+  Title,
+  ViewButton,
+  Wrapper,
 } from "./styles";
-import { Fade, Flip, Zoom } from "react-reveal";
-import { BsEye, BsChat } from "../../styles/Icons";
-import { useRouter } from "next/router";
-import Head from "next/head";
+import background from "/public/static/assets/background.gif";
 
 function Hero() {
   const router = useRouter();
@@ -24,9 +23,41 @@ function Hero() {
   return (
     <Container>
       <Background image={background} />
+
       <Head>
-        <title>Ishikawa Izumi — Freelancer UI/UX Designer</title>
+        <title>
+          Freelancer UI/UX Designer & Full-Stack Developer | Ishikawa Izumi
+        </title>
+        <meta
+          name="description"
+          content="Ishikawa Izumi is a freelancer UI/UX Designer and Full-Stack Developer building modern, user-focused websites and applications."
+        />
       </Head>
+
+      <section
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          padding: 0,
+          margin: -1,
+          overflow: "hidden",
+          clip: "rect(0,0,0,0)",
+          whiteSpace: "nowrap",
+          border: 0,
+        }}
+        aria-hidden="false"
+      >
+        <h1>Ishikawa Izumi</h1>
+        <h2>Freelancer UI/UX Designer and Full-Stack Developer</h2>
+        <p>
+          Ishikawa Izumi is a freelancer UI/UX Designer and Full-Stack Developer
+          based in Ireland. Ishikawa Izumi designs and develops modern websites
+          and mobile applications focused on usability, performance, and
+          business results.
+        </p>
+      </section>
+
       <Wrapper>
         <Main>
           <Fade top>
@@ -38,6 +69,7 @@ function Hero() {
               <Letter>I</Letter>
             </Title>
           </Fade>
+
           <Fade top delay={100}>
             <SubTitle>
               <Letter className="coded">D</Letter>
@@ -45,18 +77,21 @@ function Hero() {
               <Letter className="stretch coded">V</Letter>
             </SubTitle>
           </Fade>
+
           <Flip top delay={600}>
-            <About style={{marginTop: 20}}>
+            <About style={{ marginTop: 20 }}>
               Full-stack <span>developer</span> and UI/UX Designer
             </About>
           </Flip>
         </Main>
+
         <HeroFooter>
           <Fade left delay={800}>
             <ViewButton onClick={() => router.push("/about")}>
               <BsEye /> See more about me
             </ViewButton>
           </Fade>
+
           <Fade right delay={800}>
             <ContactButton onClick={() => router.push("/projects")}>
               <BsChat /> My Work

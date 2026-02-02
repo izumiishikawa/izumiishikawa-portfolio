@@ -1,65 +1,59 @@
-import Head from "next/head";
-import React, { useState } from "react";
-import PageTitle from "../../components/PageTitle";
-import {
-  Container,
-  AboutMe,
-  FirstRow,
-  PictureContainer,
-  AboutMeTitle,
-  AboutMeParagraph,
-  FirstColumn,
-  NameTitle,
-  ExperienceContainer,
-  CVContainer,
-  CVButton,
-  SecundaryColumn,
-  TitleContainer,
-  ServicesParagraph,
-  TechsContainer,
-  TechP,
-  ExperienceGrid,
-  ExperienceCard,
-  CompanyLogo,
-  CompanyHeader,
-  CompanyInfo,
-  CompanyName,
-  Duration,
-  Description,
-  TechStack,
-  TechBadge,
-} from "../../styles/pages/About";
 import { motion } from "framer-motion";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import {
-  IoLogoJavascript,
-  IoLogoReact,
-  IoLogoPython,
-  IoLogoFigma,
-} from "react-icons/io5";
-import { 
-  FaReact, 
-  FaFigma, 
-  FaNodeJs, 
-  FaPython, 
   FaAngular,
   FaAws,
   FaDocker,
-  FaGitAlt
+  FaFigma,
+  FaGitAlt,
+  FaNodeJs,
+  FaPython,
+  FaReact,
 } from "react-icons/fa";
-import { 
-  SiTypescript, 
-  SiNextdotjs, 
-  SiMongodb, 
-  SiTailwindcss,
-  SiPostgresql,
-  SiSass,
-  SiNestjs,
-  SiRedis,
+import { IoLogoJavascript } from "react-icons/io5";
+import {
+  SiExpress,
   SiGraphql,
+  SiMongodb,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
   SiPrisma,
-  SiExpress
+  SiRedis,
+  SiSass,
+  SiTailwindcss,
+  SiTypescript,
 } from "react-icons/si";
-import { useRouter } from "next/router";
+import PageTitle from "../../components/PageTitle";
+import {
+  AboutMe,
+  AboutMeParagraph,
+  AboutMeTitle,
+  CompanyHeader,
+  CompanyInfo,
+  CompanyLogo,
+  CompanyName,
+  Container,
+  CVButton,
+  CVContainer,
+  Description,
+  Duration,
+  ExperienceCard,
+  ExperienceContainer,
+  ExperienceGrid,
+  FirstColumn,
+  FirstRow,
+  NameTitle,
+  PictureContainer,
+  SecundaryColumn,
+  ServicesParagraph,
+  TechBadge,
+  TechP,
+  TechsContainer,
+  TechStack,
+  TitleContainer,
+} from "../../styles/pages/About";
 
 function About() {
   const router = useRouter();
@@ -130,28 +124,28 @@ function About() {
   ];
 
   const techStack = [
-    
-    { name: "JavaScript ES6+", icon: <IoLogoJavascript />, category: "Frontend" },
+    {
+      name: "JavaScript ES6+",
+      icon: <IoLogoJavascript />,
+      category: "Frontend",
+    },
     { name: "TypeScript", icon: <SiTypescript />, category: "Frontend" },
     { name: "React.js", icon: <FaReact />, category: "Frontend" },
     { name: "Next.js", icon: <SiNextdotjs />, category: "Frontend" },
     { name: "Angular", icon: <FaAngular />, category: "Frontend" },
     { name: "Tailwind CSS", icon: <SiTailwindcss />, category: "Frontend" },
     { name: "SASS/SCSS", icon: <SiSass />, category: "Frontend" },
-    
-    
+
     { name: "Node.js", icon: <FaNodeJs />, category: "Backend" },
     { name: "Python", icon: <FaPython />, category: "Backend" },
     { name: "Nest.js", icon: <SiNestjs />, category: "Backend" },
     { name: "Express.js", icon: <SiExpress />, category: "Backend" },
-    
-    
+
     { name: "PostgreSQL", icon: <SiPostgresql />, category: "Database" },
     { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
     { name: "Redis", icon: <SiRedis />, category: "Database" },
     { name: "Prisma", icon: <SiPrisma />, category: "Database" },
-    
-    
+
     { name: "AWS", icon: <FaAws />, category: "Cloud & DevOps" },
     { name: "Docker", icon: <FaDocker />, category: "Cloud & DevOps" },
     { name: "Git", icon: <FaGitAlt />, category: "Cloud & DevOps" },
@@ -163,7 +157,11 @@ function About() {
   return (
     <Container>
       <Head>
-        <title>Ishikawa Izumi — About Me</title>
+        <title>Ishikawa Izumi | About Me</title>
+        <meta
+          name="description"
+          content="Freelancer UI/UX Designer and Full-stack Developer based in Ireland. I help startups and businesses design and build modern, user-focused digital products."
+        ></meta>
       </Head>
       <PageTitle
         title="about"
@@ -175,9 +173,7 @@ function About() {
           <PictureContainer src="/static/assets/pfp.jpeg" />
           <FirstColumn>
             <AboutMeTitle>Hello 👋</AboutMeTitle>
-            <NameTitle>
-              I'm Izumi
-            </NameTitle>
+            <NameTitle>I'm Izumi</NameTitle>
             <AboutMeTitle>
               A <span className="colored">full-stack</span> Software Developer /
               UI - UX Designer.
@@ -266,19 +262,25 @@ function About() {
           <TechsContainer>
             {categories.map((category) => (
               <div key={category} style={{ marginBottom: "30px" }}>
-                <h3 style={{ 
-                  fontSize: "1.1rem", 
-                  fontWeight: "600", 
-                  marginBottom: "15px",
-                  color: "var(--mainText)"
-                }}>
+                <h3
+                  style={{
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    marginBottom: "15px",
+                    color: "var(--mainText)",
+                  }}
+                >
                   {category}
                 </h3>
-                <div className="card" style={{ 
-                  display: "grid", 
-                  gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))", 
-                  gap: "15px" 
-                }}>
+                <div
+                  className="card"
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns:
+                      "repeat(auto-fill, minmax(150px, 1fr))",
+                    gap: "15px",
+                  }}
+                >
                   {techStack
                     .filter((tech) => tech.category === category)
                     .map((tech, index) => (

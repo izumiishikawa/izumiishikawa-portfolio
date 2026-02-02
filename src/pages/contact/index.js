@@ -1,26 +1,24 @@
-import React, { useMemo } from "react";
+import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useMemo } from "react";
+import PageTitle from "../../components/PageTitle";
 import {
+  Column,
   Container,
-  LeftContainer,
+  Form,
   Input,
   InputData,
-  Form,
-  Row,
-  Column,
-  TextArea,
   Main,
+  Row,
   SubmitButton,
-  RightContainer,
+  TextArea,
 } from "../../styles/pages/Contact";
-import dynamic from "next/dynamic";
-import emailjs from "emailjs-com";
-import Head from "next/head";
-import PageTitle from "../../components/PageTitle";
-import { motion } from "framer-motion";
 
 function Contact() {
   const Map = useMemo(() =>
-    dynamic(() => import("../../components/Map"), { ssr: false })
+    dynamic(() => import("../../components/Map"), { ssr: false }),
   );
 
   const sendEmail = (e) => {
@@ -29,7 +27,7 @@ function Contact() {
         "service_50wnttx",
         "template_11m1mqp",
         e.target,
-        "Dh4W84gR2oYOZQnbC"
+        "Dh4W84gR2oYOZQnbC",
       )
       .then(
         (result) => {
@@ -37,7 +35,7 @@ function Contact() {
         },
         (error) => {
           console.log(error.text);
-        }
+        },
       );
     e.target.reset();
     e.preventDefault();
@@ -46,7 +44,11 @@ function Contact() {
   return (
     <Container>
       <Head>
-        <title>Ishikawa Izumi — Contact Me</title>
+        <title>Ishikawa Izumi | Contact Me</title>
+        <meta
+          name="description"
+          content="Get in touch to discuss UI/UX design or full-stack development projects. Available for freelance work, collaborations, and new opportunities."
+        ></meta>
       </Head>
       <Main>
         <PageTitle

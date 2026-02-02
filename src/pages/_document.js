@@ -1,5 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import Script from "next/script";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -7,7 +6,7 @@ export default class MyDocument extends Document {
     const sheet = new ServerStyleSheet();
 
     const page = renderPage(
-      (App) => (props) => sheet.collectStyles(<App {...props} />)
+      (App) => (props) => sheet.collectStyles(<App {...props} />),
     );
 
     const styleTags = sheet.getStyleElement();
@@ -29,6 +28,10 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <meta
+            name="description"
+            content="Freelancer UI/UX Designer and Full-stack Developer. I design and build high-quality websites and mobile apps for startups and businesses."
+          ></meta>
           <meta name="darkreader-lock" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -36,7 +39,10 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           ></link>
-          <meta name="google-site-verification" content="irKl6t8UwBedlCZJMmJqn1I-zplPtyIUsFqavOSRweQ" />
+          <meta
+            name="google-site-verification"
+            content="irKl6t8UwBedlCZJMmJqn1I-zplPtyIUsFqavOSRweQ"
+          />
           <link rel="shortcut icon" href="static/favicon.ico" />
         </Head>
         <body>
