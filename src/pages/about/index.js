@@ -26,6 +26,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import PageTitle from "../../components/PageTitle";
+import SEO from "../../components/SEO";
 import {
   AboutMe,
   AboutMeParagraph,
@@ -156,13 +157,38 @@ function About() {
 
   return (
     <Container>
+      <SEO
+        title="About Me"
+        description="Learn about Izumi Ishikawa - a freelancer UI/UX Designer and Full-Stack Developer based in Ireland. Explore my tech stack, professional experience, and skills."
+      />
+
+      {/* BreadcrumbList Schema */}
       <Head>
-        <title>Ishikawa Izumi | About Me</title>
-        <meta
-          name="description"
-          content="Freelancer UI/UX Designer and Full-stack Developer based in Ireland. I help startups and businesses design and build modern, user-focused digital products."
-        ></meta>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://izumiishikawa.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "About",
+                  item: "https://izumiishikawa.com/about",
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
+
       <PageTitle
         title="about"
         stretchedLetter="b"

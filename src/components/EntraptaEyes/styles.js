@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container } from "../PostCard/styles";
+import { ProjectWrapper } from "../../styles/pages/Projects";
 
 export const ContainerEye = styled.div`
   display: flex;
@@ -42,7 +43,8 @@ export const Light = styled.div`
   animation-fill-mode: forwards;
   animation-play-state: paused;
 
-  ${Container}:hover & {
+  ${Container}:hover &,
+  ${ProjectWrapper}:hover & {
     animation-play-state: running;
   }
 
@@ -56,7 +58,8 @@ export const Light = styled.div`
     animation-fill-mode: forwards;
     animation-play-state: paused;
 
-    ${Container}:hover & {
+    ${Container}:hover &,
+    ${ProjectWrapper}:hover & {
       animation-play-state: running;
     }
   }

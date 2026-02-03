@@ -7,6 +7,7 @@ import Tilt from "react-parallax-tilt";
 import { Zoom } from "react-reveal";
 import PageTitle from "../../components/PageTitle";
 import PostCard from "../../components/PostCard";
+import SEO from "../../components/SEO";
 import { Container, MainWrapper } from "../../styles/pages/BlogMain";
 
 export default function Blog({ posts }) {
@@ -14,13 +15,54 @@ export default function Blog({ posts }) {
 
   return (
     <Container>
+      <SEO
+        title="Blog"
+        description="Insights and articles about UI/UX design, web and mobile development, freelancing, and building digital products with focus on usability and performance."
+      />
+
+      {/* Structured Data */}
       <Head>
-        <title>Ishikawa Izumi | Blog</title>
-        <meta
-          name="description"
-          content="Insights and articles about UI/UX design, web and mobile development, freelancing, and building digital products with focus on usability and performance."
-        ></meta>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "Blog - Izumi Ishikawa",
+              description: "Articles about UI/UX design and full-stack development",
+              url: "https://izumiishikawa.com/blog",
+              isPartOf: {
+                "@type": "WebSite",
+                url: "https://izumiishikawa.com",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://izumiishikawa.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://izumiishikawa.com/blog",
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
+
       <PageTitle
         title="blog"
         stretchedLetter="b"

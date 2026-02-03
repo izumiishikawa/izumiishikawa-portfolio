@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
 import fs from "fs";
-import path from "path";
-import {
-  Container,
-  LeftContainer,
-  RightContainer,
-  PostData,
-  PostTitle,
-  PostSubTitle,
-  PostImage,
-  PostContent,
-  Divider,
-  MiddleContainer,
-  CardContainer,
-  ImageWrapper,
-  ImageComp,
-  MoreArticles,
-  TagWrapper,
-  TagContainer,
-  TagTitle,
-} from "../../styles/pages/Blog";
 import matter from "gray-matter";
-import Markdown from "markdown-to-jsx";
-import { AiFillCalendar, BsBook } from "../../styles/Icons";
 import hljs from "highlight.js";
+import Markdown from "markdown-to-jsx";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import path from "path";
+import React, { useEffect } from "react";
+import SEO from "../../components/SEO";
+import { AiFillCalendar, BsBook } from "../../styles/Icons";
+import {
+  CardContainer,
+  Container,
+  Divider,
+  ImageComp,
+  ImageWrapper,
+  LeftContainer,
+  MiddleContainer,
+  MoreArticles,
+  PostContent,
+  PostData,
+  PostImage,
+  PostSubTitle,
+  PostTitle,
+  RightContainer,
+  TagContainer,
+  TagTitle,
+  TagWrapper,
+} from "../../styles/pages/Blog";
 
 function Card(props) {
   const myLoader = () => {
@@ -71,19 +72,111 @@ function Tag(props) {
   );
 }
 
-function Blog({ data, content, posts }) {
+// Parse date string to ISO format
+function parseDate(dateStr) {
+  try {
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) {
+      return new Date().toISOString();
+    }
+    return date.toISOString();
+  } catch {
+    return new Date().toISOString();
+  }
+}
+
+function Blog({ data, content, posts, slug }) {
   useEffect(() => {
     hljs.initHighlighting();
   }, []);
 
   const router = useRouter();
-  var categories = data.tags.split(",");
+  const categories = data.tags ? data.tags.split(",").map(t => t.trim()) : [];
+  const publishedTime = parseDate(data.date);
+  const wordCount = content ? content.split(/\s+/).length : 0;
 
   return (
     <Container>
+      <SEO
+        title={data.title}
+        description={data.description || data.subtitle}
+        image={data.image}
+        type="article"
+        article={{
+          publishedTime: publishedTime,
+          author: "Izumi Ishikawa",
+          tags: categories,
+        }}
+      />
+
+      {/* Article Schema */}
       <Head>
-        <title>{data.title}</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: data.title,
+              description: data.description || data.subtitle,
+              image: data.image?.startsWith("http")
+                ? data.image
+                : `https://izumiishikawa.com${data.image}`,
+              datePublished: publishedTime,
+              dateModified: publishedTime,
+              author: {
+                "@type": "Person",
+                name: "Izumi Ishikawa",
+                url: "https://izumiishikawa.com",
+              },
+              publisher: {
+                "@type": "Person",
+                name: "Izumi Ishikawa",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://izumiishikawa.com/static/favicon.ico",
+                },
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://izumiishikawa.com/blog/${slug}`,
+              },
+              wordCount: wordCount,
+              articleSection: categories[0] || "Technology",
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://izumiishikawa.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://izumiishikawa.com/blog",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: data.title,
+                  item: `https://izumiishikawa.com/blog/${slug}`,
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
+
       <LeftContainer></LeftContainer>
       <MiddleContainer>
         <PostData>
@@ -170,6 +263,7 @@ export const getStaticProps = async (context) => {
       content,
       data,
       posts,
+      slug: id,
     },
   };
 };

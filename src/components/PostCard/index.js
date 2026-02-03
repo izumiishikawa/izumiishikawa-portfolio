@@ -1,19 +1,16 @@
-import React from "react";
-import styled from "styled-components";
+import { DateContainer } from "../../styles/pages/Projects";
+import EntraptaEyes from "../EntraptaEyes";
 import {
   Container,
-  Info,
-  Date,
-  TagContainer,
-  Title,
-  TagWrapper,
-  Overlay,
-  ImageWrapper,
   EntraptaWrapper,
   ImageComp,
+  ImageWrapper,
+  Info,
+  Overlay,
+  TagContainer,
+  TagWrapper,
+  Title,
 } from "./styles";
-import EntraptaEyes from "../EntraptaEyes";
-import { AiFillCalendar } from "../../styles/Icons";
 
 function PostCard(props) {
   var categories = props.categories.split(",");
@@ -37,9 +34,11 @@ function PostCard(props) {
         </EntraptaWrapper>
       </ImageWrapper>
       <Info>
-        <Date>
-          <AiFillCalendar /> {props.date}
-        </Date>
+        <DateContainer>
+          <div className="line"></div>
+          <span>{props.date}</span>
+          <div className="line"></div>
+        </DateContainer>
         <h2>{props.title}</h2>
         <p>{props.description}</p>
         <TagWrapper>

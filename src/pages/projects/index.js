@@ -1,30 +1,30 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import Tilt from "react-parallax-tilt";
+import EntraptaEyes from "../../components/EntraptaEyes";
 import PageTitle from "../../components/PageTitle";
+import SEO from "../../components/SEO";
 import {
   AppDetails,
   Container,
   DateContainer,
+  EntraptaWrapper,
+  ImageWrapper,
+  Overlay,
   ProjectsMain,
   ProjectWrapper,
   StoreBadge,
   StoreRow,
   Thumbnail,
-  ThumbnailWrapper,
 } from "../../styles/pages/Projects";
 
 function Projects() {
-  const router = useRouter();
-
   const projects = [
     {
       id: 1,
       date: "JANUARY, 2025",
       title: "Levelite: Habits and Tasks RPG",
-      shortDescription: "Gamified productivity platform with RPG mechanics",
-      fullDescription:
-        "Revolutionary task management application that transforms daily habits into an engaging RPG experience. Features include character progression, quest systems, and achievement rewards to boost user motivation and productivity.",
+      description:
+        "Built the entire app from scratch — UI/UX design, frontend with React Native, backend with Node.js and MongoDB. Deployed to both stores.",
       image: "/static/assets/levelite_banner.png",
       url: "https://play.google.com/store/apps/details?id=com.satsukiizumi.leveliteapp",
       featured: true,
@@ -33,9 +33,8 @@ function Projects() {
       id: 2,
       date: "APRIL, 2023",
       title: "Leticia Therapist",
-      shortDescription: "Professional mental health services landing page",
-      fullDescription:
-        "Complete digital presence solution for a therapy practice, featuring appointment scheduling, service showcase, and patient testimonials. Designed to create trust and accessibility while maintaining professional aesthetics.",
+      description:
+        "Designed and developed a landing page that improved client conversions by 85% through better UX and clear call-to-actions.",
       image: "/static/assets/leticia.webp",
       url: "https://leticiakarolin.vercel.app/",
     },
@@ -43,9 +42,8 @@ function Projects() {
       id: 3,
       date: "MAY, 2024",
       title: "Carlos Advogados",
-      shortDescription: "Corporate law firm digital experience",
-      fullDescription:
-        "Sophisticated website for a premier law firm, incorporating case management portal, attorney profiles, and client resources. Built with focus on credibility, professionalism, and seamless user experience.",
+      description:
+        "Built a professional landing page that significantly improved client conversions through modern design and optimized user flow.",
       image: "/static/assets/carlos.png",
       url: "https://carlosadvogados.vercel.app",
     },
@@ -53,10 +51,8 @@ function Projects() {
       id: 4,
       date: "JULY, 2023",
       title: "SouJunior",
-      shortDescription:
-        "Professional networking platform for junior developers",
-      fullDescription:
-        "Contributed to a comprehensive LinkedIn-style platform designed specifically for junior developers. Implemented features for profile building, job matching, and community networking to help early-career professionals connect and grow.",
+      description:
+        "Led frontend development for the MVP, implementing core features and improving load performance through code splitting.",
       image: "/static/projects/soujunior.jpeg",
       url: "https://www.soujunior.tech",
     },
@@ -64,9 +60,8 @@ function Projects() {
       id: 5,
       date: "NOVEMBER, 2022",
       title: "Cartuchos Online",
-      shortDescription: "E-commerce platform for printing supplies",
-      fullDescription:
-        "Modern e-commerce solution specializing in printer cartridges and supplies. Features include smart product filtering, bulk ordering capabilities, and streamlined checkout process designed to maximize conversions.",
+      description:
+        "Designed and developed a landing page for a printing supplies store with focus on product showcase and contact conversion.",
       image: "/static/projects/cartuchos.jpeg",
       url: "https://cartuchosonline.netlify.app",
     },
@@ -74,63 +69,69 @@ function Projects() {
       id: 6,
       date: "FEBRUARY, 2023",
       title: "LOGZZ",
-      shortDescription: "Logistics management platform redesign",
-      fullDescription:
-        "Redesigned authentication flow and contributed to various platform features for a logistics management system. Focus on improving user onboarding experience and streamlining daily operational workflows.",
+      description:
+        "Redesigned the authentication flow and improved the dashboard UX, making daily operations more intuitive for users.",
       image: "/static/projects/logzz.jpeg",
-      url: "https://app.logzz.com.br",
+      url: "https://logzz.com.br/",
     },
     {
       id: 7,
       date: "SEPTEMBER, 2023",
       title: "COINZZ",
-      shortDescription: "Complete cryptocurrency marketplace design",
-      fullDescription:
-        "End-to-end UI/UX design for a cryptocurrency trading marketplace. Delivered complete design system including trading interface, wallet management, transaction history, and real-time market analytics dashboard.",
+      description:
+        "Created the complete design system and UI/UX for the trading platform, including trading interface and wallet management.",
       image: "/static/projects/coinzz.png",
-      url: "https://app.coinzz.com.br/login",
+      url: "https://coinzz.com.br/",
     },
   ];
 
   const ProjectCard = ({ project, featured = false }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
-    return (
+    const cardContent = (
       <ProjectWrapper
-        className={isHovered ? "hovered" : ""}
-        style={featured ? { maxWidth: "100%", marginTop: 60, height: 400 } : {}}
+        className={featured ? "featured" : ""}
         onClick={() => window.open(project.url, "_blank")}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
         {featured && (
           <StoreRow>
             <StoreBadge>
-              <img src="/static/assets/playstore.png" />
+              <img src="/static/assets/playstore.png" alt="Play Store" />
               Play Store
             </StoreBadge>
             <StoreBadge>
-              <img src="/static/assets/appstore.png" />
+              <img src="/static/assets/appstore.png" alt="App Store" />
               App Store
             </StoreBadge>
           </StoreRow>
         )}
-        <ThumbnailWrapper>
-          <AppDetails>
-            <DateContainer>
-              <div className="line"></div>
-              <span>{project.date}</span>
-              <div className="line"></div>
-            </DateContainer>
-
-            <h1>{project.title}</h1>
-            <h2 className="short-desc">{project.shortDescription}</h2>
-            <p className="full-desc">{project.fullDescription}</p>
-          </AppDetails>
-
-          <Thumbnail src={project.image} className="thumb" />
-        </ThumbnailWrapper>
+        <ImageWrapper>
+          <Thumbnail src={project.image} />
+          <Overlay />
+          <EntraptaWrapper>
+            <EntraptaEyes />
+          </EntraptaWrapper>
+        </ImageWrapper>
+        <AppDetails>
+          <DateContainer>
+            <div className="line"></div>
+            <span>{project.date}</span>
+            <div className="line"></div>
+          </DateContainer>
+          <h1>{project.title}</h1>
+          <p className="description">{project.description}</p>
+        </AppDetails>
       </ProjectWrapper>
+    );
+
+    return (
+      <Tilt
+        tiltReverse={true}
+        tiltMaxAngleX={featured ? 3 : 5}
+        tiltMaxAngleY={featured ? 3 : 5}
+        gyroscope={true}
+        style={featured ? { width: "100%" } : { height: "100%" }}
+      >
+        {cardContent}
+      </Tilt>
     );
   };
 
@@ -139,19 +140,71 @@ function Projects() {
 
   return (
     <Container>
+      <SEO
+        title="Projects"
+        description="Selected UI/UX and full-stack projects including websites and mobile apps, focused on clean design, usability, performance, and real business results."
+      />
+
+      {/* Structured Data */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              name: "Projects by Izumi Ishikawa",
+              description: "Portfolio of UI/UX design and development projects",
+              itemListElement: projects.map((project, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                item: {
+                  "@type": "CreativeWork",
+                  name: project.title,
+                  description: project.description,
+                  url: project.url,
+                  image: project.image.startsWith("http")
+                    ? project.image
+                    : `https://izumiishikawa.com${project.image}`,
+                  creator: {
+                    "@type": "Person",
+                    name: "Izumi Ishikawa",
+                  },
+                },
+              })),
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://izumiishikawa.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Projects",
+                  item: "https://izumiishikawa.com/projects",
+                },
+              ],
+            }),
+          }}
+        />
+      </Head>
+
       <PageTitle
         title="projects"
         stretchedLetter="r"
         overlayTitle="Contributions | Freelances"
       />
-
-      <Head>
-        <title>Ishikawa Izumi | Projects</title>
-        <meta
-          name="description"
-          content="Selected UI/UX and full-stack projects including websites and mobile apps, focused on clean design, usability, performance, and real business results."
-        ></meta>
-      </Head>
 
       <ProjectCard project={featuredProject} featured={true} />
 

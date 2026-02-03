@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useMemo } from "react";
 import PageTitle from "../../components/PageTitle";
+import SEO from "../../components/SEO";
 import {
   Column,
   Container,
@@ -43,13 +44,53 @@ function Contact() {
 
   return (
     <Container>
+      <SEO
+        title="Contact Me"
+        description="Get in touch to discuss UI/UX design or full-stack development projects. Available for freelance work, collaborations, and new opportunities."
+      />
+
+      {/* Structured Data */}
       <Head>
-        <title>Ishikawa Izumi | Contact Me</title>
-        <meta
-          name="description"
-          content="Get in touch to discuss UI/UX design or full-stack development projects. Available for freelance work, collaborations, and new opportunities."
-        ></meta>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              name: "Contact Izumi Ishikawa",
+              description: "Get in touch for freelance projects",
+              url: "https://izumiishikawa.com/contact",
+              mainEntity: {
+                "@id": "https://izumiishikawa.com/#person",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://izumiishikawa.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Contact",
+                  item: "https://izumiishikawa.com/contact",
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
+
       <Main>
         <PageTitle
           title="contact"

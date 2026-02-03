@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fade, Flip } from "react-reveal";
 import { BsChat, BsEye } from "../../styles/Icons";
@@ -24,16 +23,6 @@ function Hero() {
     <Container>
       <Background image={background} />
 
-      <Head>
-        <title>
-          Freelancer UI/UX Designer & Full-Stack Developer | Ishikawa Izumi
-        </title>
-        <meta
-          name="description"
-          content="Ishikawa Izumi is a freelancer UI/UX Designer and Full-Stack Developer building modern, user-focused websites and applications."
-        />
-      </Head>
-
       <section
         style={{
           position: "absolute",
@@ -48,11 +37,11 @@ function Hero() {
         }}
         aria-hidden="false"
       >
-        <h1>Ishikawa Izumi</h1>
+        <h1>Izumi Ishikawa</h1>
         <h2>Freelancer UI/UX Designer and Full-Stack Developer</h2>
         <p>
-          Ishikawa Izumi is a freelancer UI/UX Designer and Full-Stack Developer
-          based in Ireland. Ishikawa Izumi designs and develops modern websites
+          Izumi Ishikawa is a freelancer UI/UX Designer and Full-Stack Developer
+          based in Ireland. Izumi Ishikawa designs and develops modern websites
           and mobile applications focused on usability, performance, and
           business results.
         </p>

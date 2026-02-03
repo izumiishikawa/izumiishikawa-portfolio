@@ -101,26 +101,113 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <Head>
+        {/* Viewport */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+        {/* Default title */}
         <title>
-          Freelancer UI/UX Designer & Full-Stack Developer | Ishikawa Izumi
+          Freelancer UI/UX Designer & Full-Stack Developer | Izumi Ishikawa
         </title>
 
-        <link rel="canonical" href="https://www.izumiishikawa.com/" />
+        {/* Default meta description */}
+        <meta
+          name="description"
+          content="Izumi Ishikawa is a freelancer UI/UX Designer and Full-Stack Developer building modern, user-focused websites and applications for startups and businesses."
+        />
 
+        {/* Default canonical */}
+        <link rel="canonical" href="https://izumiishikawa.com/" />
+
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://izumiishikawa.com/#website",
+              name: "Izumi Ishikawa Portfolio",
+              url: "https://izumiishikawa.com",
+              description: "Portfolio of Izumi Ishikawa - Freelancer UI/UX Designer and Full-Stack Developer",
+              author: {
+                "@id": "https://izumiishikawa.com/#person",
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate: "https://izumiishikawa.com/blog?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+
+        {/* Person Schema - Enhanced */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Ishikawa Izumi",
-              url: "https://www.izumiishikawa.com",
+              "@id": "https://izumiishikawa.com/#person",
+              name: "Izumi Ishikawa",
+              givenName: "Izumi",
+              familyName: "Ishikawa",
+              url: "https://izumiishikawa.com",
+              image: "https://izumiishikawa.com/static/assets/pfp.jpeg",
               jobTitle: "UI/UX Designer & Full-Stack Developer",
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IE",
+                addressLocality: "Ireland",
+              },
               sameAs: [
                 "https://www.linkedin.com/in/izumiishikawa",
                 "https://github.com/izumiishikawa",
                 "https://dribbble.com/izumiishikawa",
               ],
+              knowsAbout: [
+                "UI/UX Design",
+                "React",
+                "Next.js",
+                "Node.js",
+                "TypeScript",
+                "Full-Stack Development",
+                "Mobile App Development",
+                "Web Development",
+              ],
+            }),
+          }}
+        />
+
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://izumiishikawa.com/#organization",
+              name: "Izumi Ishikawa",
+              url: "https://izumiishikawa.com",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://izumiishikawa.com/static/favicon.ico",
+              },
+              founder: {
+                "@id": "https://izumiishikawa.com/#person",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                url: "https://izumiishikawa.com/contact",
+              },
             }),
           }}
         />
