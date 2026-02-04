@@ -9,7 +9,6 @@ import "../styles/dracula.css";
 import GlobalStyle from "../styles/global";
 import dark from "../styles/themes/dark";
 import light from "../styles/themes/light";
-import lines from "/public/static/assets/back.png";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -102,7 +101,10 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Head>
         {/* Viewport */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        />
 
         {/* Default title */}
         <title>
@@ -128,7 +130,8 @@ function MyApp({ Component, pageProps }) {
               "@id": "https://izumiishikawa.com/#website",
               name: "Izumi Ishikawa Portfolio",
               url: "https://izumiishikawa.com",
-              description: "Portfolio of Izumi Ishikawa - Freelancer UI/UX Designer and Full-Stack Developer",
+              description:
+                "Portfolio of Izumi Ishikawa - Freelancer UI/UX Designer and Full-Stack Developer",
               author: {
                 "@id": "https://izumiishikawa.com/#person",
               },
@@ -136,7 +139,8 @@ function MyApp({ Component, pageProps }) {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "https://izumiishikawa.com/blog?q={search_term_string}",
+                  urlTemplate:
+                    "https://izumiishikawa.com/blog?q={search_term_string}",
                 },
                 "query-input": "required name=search_term_string",
               },
@@ -212,8 +216,6 @@ function MyApp({ Component, pageProps }) {
           }}
         />
       </Head>
-
-      <Lines image={lines} />
 
       <CustomCursor />
       <GlobalStyle />

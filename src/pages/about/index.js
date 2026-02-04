@@ -201,16 +201,15 @@ function About() {
             <AboutMeTitle>Hello 👋</AboutMeTitle>
             <NameTitle>I'm Izumi</NameTitle>
             <AboutMeTitle>
-              A <span className="colored">full-stack</span> Software Developer /
-              UI - UX Designer.
+              I currently live at <span className="colored">Ireland</span>
             </AboutMeTitle>
             <AboutMeParagraph>
-              I am a Full-Stack developer and UI/UX Designer passionate about
-              bringing digital products to life. My goal is to transform
-              innovative ideas into functional and engaging experiences. I focus
-              particularly on developing dynamic and responsive interfaces, as
-              well as creating performant and SEO-optimized websites to ensure
-              my clients' projects stand out online.
+              I'm a Full Stack Mid-level Engineer and UI/UX Designer with
+              hands-on experience building and scaling real SaaS and B2C
+              products used by thousands of active users. Specialized in React,
+              React Native, and TypeScript, with a strong product-driven mindset
+              and end-to-end involvement in technical execution, business
+              decisions, lead generation, marketing strategy, SEO, and ASO
             </AboutMeParagraph>
             <ExperienceContainer>
               <div className="line"></div>
@@ -231,7 +230,7 @@ function About() {
 
         <SecundaryColumn>
           <TitleContainer>
-            <NameTitle>Professional Journey</NameTitle>
+            <NameTitle>Experience</NameTitle>
           </TitleContainer>
           <ServicesParagraph>
             As a freelancer and contributor, I have been able to make valuable

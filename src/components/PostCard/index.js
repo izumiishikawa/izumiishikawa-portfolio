@@ -8,7 +8,6 @@ import {
   Info,
   Overlay,
   TagContainer,
-  TagWrapper,
   Title,
 } from "./styles";
 
@@ -41,11 +40,6 @@ function PostCard(props) {
         </DateContainer>
         <h2>{props.title}</h2>
         <p>{props.description}</p>
-        <TagWrapper>
-          {categories.map((category) => {
-            return <Tag key={category} title={category} />;
-          })}
-        </TagWrapper>
       </Info>
     </Container>
   );
