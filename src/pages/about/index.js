@@ -19,7 +19,6 @@ import {
   SiNestjs,
   SiNextdotjs,
   SiPostgresql,
-  SiPrisma,
   SiRedis,
   SiSass,
   SiTailwindcss,
@@ -138,14 +137,12 @@ function About() {
     { name: "SASS/SCSS", icon: <SiSass />, category: "Frontend" },
 
     { name: "Node.js", icon: <FaNodeJs />, category: "Backend" },
-    { name: "Python", icon: <FaPython />, category: "Backend" },
     { name: "Nest.js", icon: <SiNestjs />, category: "Backend" },
     { name: "Express.js", icon: <SiExpress />, category: "Backend" },
 
     { name: "PostgreSQL", icon: <SiPostgresql />, category: "Database" },
     { name: "MongoDB", icon: <SiMongodb />, category: "Database" },
     { name: "Redis", icon: <SiRedis />, category: "Database" },
-    { name: "Prisma", icon: <SiPrisma />, category: "Database" },
 
     { name: "AWS", icon: <FaAws />, category: "Cloud & DevOps" },
     { name: "Docker", icon: <FaDocker />, category: "Cloud & DevOps" },
